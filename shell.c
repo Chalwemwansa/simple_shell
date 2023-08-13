@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * shell - a shell by William and Chalwe
  *
@@ -6,6 +7,7 @@
  * @argv: list of environment variables
  * Return: nothing
  */
+
 void shell(char *arg[], char *argv[])
 {
 	pid_t pid;
