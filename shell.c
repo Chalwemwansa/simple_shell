@@ -27,7 +27,7 @@ void handle(char *str, char *str1[], char *arg[])
 	{
 		if (str[ch] == '\n')
 			str[ch] = '\0';
-		ch = ch + 1;;
+		ch = ch + 1;
 	}
 	str1[i] = strtok(str, " ");
 	while (str1[i++] != NULL)
