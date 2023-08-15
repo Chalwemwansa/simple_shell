@@ -11,6 +11,7 @@
 
 int _putchar(char c);
 void shell(char *arg[], char *argv[]);
-void check(char *str);
+int check(char *str);
+void do1(char **str1);
 
 #endif
