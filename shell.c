@@ -3,16 +3,14 @@
  * cop - copies strings
  *
  * @tocken: variable used
- * @str: parameter passed
  * @new: parameeter passed
  * Return: character array
  */
-char *cop(char *str, char *new, char *tocken)
+char *cop(char *new, char *tocken)
 {
 	char *path = "/bin/";
 	int iter = 0, iter1 = 0;
 
-	tocken = strtok(str, " ");
 	while (path[iter] != '\0')
 	{
 		new[iter] = path[iter];
@@ -33,17 +31,14 @@ char *cop(char *str, char *new, char *tocken)
  * @str1: variable used in the code
  * @arg:variable used in the code
  * @new1: variable used in the code
+ * @get: variable used in the code
  * Return: nothing
  */
-void handle(char **str2, char *str1[], char *arg[], char **new1)
+void handle(char **str2, char *str1[], char *arg[], char **new1, ssize_t get)
 {
 	int ch, i = 0;
-	size_t buffsize;
-	ssize_t get = 0;
 	char *tocken = NULL, *str = *str2, *new = *new1;
 
-	write(STDOUT_FILENO, "#cisfun$ ", 11);
-	get = getline(&str, &buffsize, stdin);
 	if (get == -1)
 	{
 		free(*new1);
@@ -60,11 +55,12 @@ void handle(char **str2, char *str1[], char *arg[], char **new1)
 	}
 	if (check(str) == -1)
 	{
-		free(*new1);
 		free(*str2);
+		free(*new1);
 		exit(0);
 	}
-	str1[i] = cop(str, new, tocken);
+	tocken = strtok(str, " ");
+	str1[i] = cop(new, tocken);
 	while (str1[i++] != NULL)
 		str1[i] = strtok(NULL, " ");
 
@@ -72,14 +68,14 @@ void handle(char **str2, char *str1[], char *arg[], char **new1)
 /**
  * mal - mallocs a string
  *
- * @new:variable passed
+ * @new1:variable passed
  * @arg: list of arguments to the function
  * Return: nothing
  */
-void mal(char **new, char *arg[])
+void mal(char **new1, char *arg[])
 {
-	*new = malloc(sizeof(char) * 100);
-	if (*new == NULL)
+	*new1 = malloc(sizeof(char) * 200);
+	if (*new1 == NULL)
 	{
 		perror(arg[0]);
 		exit(90);
@@ -117,38 +113,42 @@ void shell(char *arg[], char *argv[])
 {
 	pid_t pid;
 	int status, exec = 0;
-	char *str = NULL, *str1[100] = {NULL}, *new = NULL;
+	char *str, *str1[100] = {NULL}, *new;
+	ssize_t get = 0;
+	size_t buffsize = 0;
 
 	for (;;)
 	{
+		write(STDOUT_FILENO, "#cisfun$ ", 10);
+		mal(&str, arg);
+		get = getline(&str, &buffsize, stdin);
 		mal(&new, arg);
-		handle(&str, str1, arg, &new);
+		handle(&str, str1, arg, &new, get);
 		if (checkfile(arg, str1) != -1)
 		{
-			pid = fork();
-			if (pid == -1)
-			{
-				free(new);
-				free(str);
-				perror(arg[0]);
-				exit(EXIT_FAILURE);
-			}
+		pid = fork();
+		if (pid == -1)
+		{
+			free(new);
+			free(str);
+			perror(arg[0]);
+			exit(EXIT_FAILURE);
 		}
-		if (pid == 0)
+		else if (pid == 0)
 		{
 			exec = execve(str1[0], str1, argv);
 			if (exec == -1)
 			{
-				free(new);
 				free(str);
+				free(new);
 				perror(arg[0]);
+				exit(EXIT_FAILURE);
 			}
 		}
 		else
-		{
 			wait(&status);
-			free(str);
-			free(new);
 		}
+		free(str);
+		free(new);
 	}
 }
