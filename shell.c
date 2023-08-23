@@ -60,7 +60,10 @@ void handle(char **str2, char *str1[], char *arg[], char **new1, ssize_t get)
 		exit(0);
 	}
 	tocken = strtok(str, " ");
-	str1[i] = cop(new, tocken);
+	if (bin(tocken) == 0)
+		str1[i] = cop(new, tocken);
+	else
+		str1[i] = tocken;
 	while (str1[i++] != NULL)
 		str1[i] = strtok(NULL, " ");
 

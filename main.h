@@ -12,5 +12,6 @@
 int _putchar(char c);
 void shell(char *arg[], char *argv[]);
 int check(char *str);
+int bin(char *tocken);
 
 #endif
