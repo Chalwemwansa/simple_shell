@@ -1,10 +1,12 @@
 #include "main.h"
+
 /**
  * check - checks if exit
  *
- * @str: string to be checked
+ * @str: gives string to be checked
  * Return: nothing
  */
+
 int check(char *str)
 {
 	int i = 0;
