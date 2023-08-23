@@ -1,10 +1,12 @@
 #include "main.h"
+
 /**
- * bin - checks if /bin/ is already included
+ * bin - checks if /bin/ is already included in file
  *
  * @tocken: the tocken to be checked
  * Return: 0 if /bin/ is not included
  */
+
 int bin(char *tocken)
 {
 	int i = 0;
