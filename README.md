@@ -1,1 +1,1 @@
-simple shell project by SHIMAPONDO & CHALWEMWANSA
+simple_shell project by SHIMAPONDO & CHALWEMWANSA
