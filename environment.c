@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
- * _myenv - prints the current environment.
- * @info: a Structure consisting potential arguments..
+ * _myenv - function prints the current environment.
+ * @info: gives a Structure consisting potential arguments..
  * Return: returns 0.
  */
+
 int _myenv(info_t *info)
 {
 	print_list_str(info->env);
@@ -11,12 +13,13 @@ int _myenv(info_t *info)
 }
 
 /**
- * _getenv - gets value of an environt var.
- * @info: Structure consisting of arguments.
- * @name: environment variable name.
+ * _getenv - function gets value of an environt var.
+ * @info: gives structure consisting of arguments.
+ * @name: gives environment variable name.
  *
- * Return: a pointer.
+ * Return: returns a pointer.
  */
+
 char *_getenv(info_t *info, const char *name)
 {
 	list_t *node = info->env;
@@ -33,10 +36,11 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _mysetenv - modifies an environment variable or initialises another one.
- * @info: Structure consisting of potential arguments.
- *  Return: returns 0.
+ * _mysetenv - function modifies an environment variable or initialises another one.
+ * @info:  gives structure consisting of potential arguments.
+ *  Return: returns 0 on success.
  */
+
 int _mysetenv(info_t *info)
 {
 	if (info->argc != 3)
@@ -51,9 +55,10 @@ int _mysetenv(info_t *info)
 
 /**
  * _myunsetenv - function used to Remove an environment variable.
- * @info: Structure consisting of potential arguments.
- *  Return: returns 0.
+ * @info: gives structure consisting of potential arguments.
+ *  Return: returns 0 on success.
  */
+
 int _myunsetenv(info_t *info)
 {
 	int i;
@@ -70,10 +75,11 @@ int _myunsetenv(info_t *info)
 }
 
 /**
- * populate_env_list - fills the environment linked list.
- * @info: Structure consisting of potential arguments.
- * Return: returns 0.
+ * populate_env_list - function fills the environment linked list.
+ * @info: gives structure consisting of potential arguments.
+ * Return: returns 0 on success.
  */
+
 int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;

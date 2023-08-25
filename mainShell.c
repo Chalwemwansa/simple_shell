@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
- * hsh - the main shell.
- * @info: the structure consisting of arguments.
- * @av: the argument vector from main function.
+ * hsh - defines the main shell.
+ * @info: gives the structure consisting of arguments.
+ * @av: gives the argument vector from main function.
  *
  * Return: returns 0 on success.
  */
+
 int hsh(info_t *info, char **av)
 {
 	ssize_t r = 0;
@@ -44,14 +45,15 @@ int hsh(info_t *info, char **av)
 }
 
 /**
- * find_builtin - checks a builtin command.
- * @info: structure consisting of arguments.
+ * find_builtin - function checks a builtin command.
+ * @info: gives structure consisting of arguments.
  *
- * Return: -1 if builtin not found,
- *returns 0 if builtin executed successfully,
- *returns 1 if builtin found but not successful,
- *returns -2 if builtin signals exit shell.
+ * Return: -1 if builtin not found,,
+ *returns 0 if builtin executed successfully,,
+ *returns 1 if builtin found but not successful,,
+ *returns -2 if builtin signals exit shell or program.
  */
+
 int find_builtin(info_t *info)
 {
 	int i, built_in_ret = -1;
@@ -78,11 +80,12 @@ int find_builtin(info_t *info)
 }
 
 /**
- * find_cmd - searches a command in the PATH.
- * @info: structure consisting of arguments.
+ * find_cmd - function searches a command in the PATH.
+ * @info: gives structure consisting of arguments.
  *
- * Return: void.
+ * Return: returns void.
  */
+
 void find_cmd(info_t *info)
 {
 	char *path = NULL;
@@ -120,11 +123,12 @@ void find_cmd(info_t *info)
 }
 
 /**
- * fork_cmd - forks to run command.
- * @info: structure consisting of arguments.
+ * fork_cmd - function forks to run command.
+ * @info: gives structure consisting of arguments.
  *
- * Return: void.
+ * Return: returns void.
  */
+
 void fork_cmd(info_t *info)
 {
 	pid_t child_pid;

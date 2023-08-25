@@ -1,19 +1,20 @@
 #include "main.h"
 
 /**
- * input_buf - commands in string.
- * @info: structure consisting of arguments.
- * @buf: a pointer to a character array.
- * @len: a pointer.
+ * input_buf - function commands in string.
+ * @info: gives structure consisting of arguments.
+ * @buf: gives a pointer to a character array.
+ * @len: gives a pointer.
  *
- * Return: the number of bytes read.
+ * Return: returns the number of bytes read.
  */
+
 ssize_t input_buf(info_t *info, char **buf, size_t *len)
 {
 	ssize_t r = 0;
 	size_t len_p = 0;
 
-	if (!*len) 
+	if (!*len)
 	{
 		free(*buf);
 		*buf = NULL;
@@ -43,11 +44,12 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 }
 
 /**
- * get_input - gets a line.
- * @info: structure consisting of arguments.
+ * get_input - function gets a line.
+ * @info: gives structure consisting of arguments.
  *
- * Return: the number of bytes read.
+ * Return: gives the number of bytes read.
  */
+
 ssize_t get_input(info_t *info)
 {
 	static char *buf;
@@ -57,7 +59,7 @@ ssize_t get_input(info_t *info)
 
 	_putchar(BUF_FLUSH);
 	r = input_buf(info, &buf, &len);
-	if (r == -1) 
+	if (r == -1)
 		return (-1);
 	if (len)
 	{
@@ -88,13 +90,14 @@ ssize_t get_input(info_t *info)
 }
 
 /**
- * read_buf - reads from string.
- * @info: structure consisting of arguments.
- * @buf: string.
- * @i: the size of.
+ * read_buf - function reads from string.
+ * @info: gives structure consisting of arguments.
+ * @buf: gives string.
+ * @i: gives the size of.
  *
  * Return: a r.
  */
+
 ssize_t read_buf(info_t *info, char *buf, size_t *i)
 {
 	ssize_t r = 0;
@@ -108,13 +111,14 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 }
 
 /**
- * _getline - gets the next line of input.
- * @info: structure consisting of arguments.
+ * _getline - function gets the next line of input.
+ * @info: gives structure consisting of arguments.
  * @ptr: NULL or address of pointer to buffer, preallocated.
- * @length: character used in the code.,.
+ * @length: gives character used in the code.,.
  *
- * Return: an s.
+ * Return: an s on success.
  */
+
 int _getline(info_t *info, char **ptr, size_t *length)
 {
 	static char buf[READ_BUF_SIZE];
@@ -155,11 +159,12 @@ int _getline(info_t *info, char **ptr, size_t *length)
 }
 
 /**
- * sigintHandler - blocks the ctrl-C signal.
- * @sig_num: signal number.
+ * sigintHandler - function blocks the ctrl-C signal.
+ * @sig_num: gives signal number.
  *
  * Return: void(nothing).
  */
+
 void sigintHandler(__attribute__((unused))int sig_num)
 {
 	_puts("\n");

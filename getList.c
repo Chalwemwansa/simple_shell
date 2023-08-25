@@ -1,13 +1,14 @@
 #include "main.h"
 
 /**
- * add_node - adds a head.
- * @head: head pointer.
- * @str: string field of node.
- * @num: index of node used in history.
+ * add_node - function adds a head.
+ * @head: gives head pointer.
+ * @str: gives string field of node.
+ * @num: gives index of node used in history.
  *
  * Return: the size of the list.
  */
+
 list_t *add_node(list_t **head, const char *str, int num)
 {
 	list_t *new_head;
@@ -34,13 +35,14 @@ list_t *add_node(list_t **head, const char *str, int num)
 }
 
 /**
- * add_node_end - adds a tail.
- * @head: head pointer.
- * @str: string field of node.
- * @num: index of node used in history.
+ * add_node_end - function adds a tail.
+ * @head: gives head pointer.
+ * @str: gives string field of node.
+ * @num: gives index of node used in history.
  *
- * Return: the size of the list.
+ * Return: returns the size of the list.
  */
+
 list_t *add_node_end(list_t **head, const char *str, int num)
 {
 	list_t *new_node, *node;
@@ -75,11 +77,12 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 }
 
 /**
- * print_list_str - prints some elements.
- * @h: head pointer.
+ * print_list_str - function prints some elements.
+ * @h: gives head pointer.
  *
- * Return: the size of the list.
+ * Return: returns the size of the list.
  */
+
 size_t print_list_str(const list_t *h)
 {
 	size_t i = 0;
@@ -95,12 +98,13 @@ size_t print_list_str(const list_t *h)
 }
 
 /**
- * delete_node_at_index - deletes the node at a given index.
- * @head: head pointer.
- * @index: index of node to delete.
+ * delete_node_at_index - function deletes the node at a given index.
+ * @head: gives head pointer.
+ * @index: gives index of node to delete.
  *
  * Return: returns 1 if succesful, else returns 0.
  */
+
 int delete_node_at_index(list_t **head, unsigned int index)
 {
 	list_t *node, *prev_node;
@@ -135,11 +139,12 @@ int delete_node_at_index(list_t **head, unsigned int index)
 }
 
 /**
- * free_list - frees all the nodes of a linked list.
- * @head_ptr: head pointer address.
+ * free_list - function frees all the nodes of a linked list.
+ * @head_ptr: gives head pointer address.
  *
- * Return: void.
+ * Return: returns void.
  */
+
 void free_list(list_t **head_ptr)
 {
 	list_t *node, *next_node, *head;
